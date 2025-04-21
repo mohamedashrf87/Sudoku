@@ -105,7 +105,6 @@ body {
   color: var(--new-game-bt-txt);
   border: 2px solid var(--new-game-bt-bg);
   border-radius: 5px;
-  font-size: x-large;
 }
 
 #Blur {
@@ -189,7 +188,10 @@ body {
       }
     }
   }
-
+  .new-game-button {
+    font-size: x-large;
+  }
+  
   .new-game-container {
     width: 30vw;
   }
@@ -224,17 +226,24 @@ body {
 
   .numbers-container {
     margin-top: 20px;
-    grid-template-columns: repeat(9, 1fr);    
+    grid-template-columns: repeat(9, 1fr);
+    height: fit-content;
+    -webkit-overflow-scrolling: touch; /* still allows smooth scrolling */
+    scrollbar-width: none; /* for Firefox */
+    -ms-overflow-style: none;
     overflow: scroll;
   
     .number-bt {
       border-radius: 50%;
+      margin-bottom: 5px;
       p {
         font-size: large;
       }
     }
   }
-
+  .new-game-button {
+    font-size: large;
+  }
   .new-game-container {
     width: 80vw;
   }
