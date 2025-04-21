@@ -241,6 +241,9 @@ body {
       }
     }
   }
+  .numbers-container::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and mobile WebKit */
+  }
   .new-game-button {
     font-size: large;
   }
