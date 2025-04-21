@@ -1,0 +1,241 @@
+:root {
+  --body-bg: #ffffff;
+
+  --difficulty-txt : #081C15;
+  --sudoku-ol : #012A4A;
+  --sudoku-s-ol : #012a4a53;
+  --sudoku-bg-hvr : #e2eaf2;
+  --sudoku-same-num-hvr : #c3d7ea;
+  --sudoku-box-hvr : #bbdefb;
+  --sudoku-txt : #081C15 ;
+
+  --numbers-bt-bg: #eaeff5;
+  --numbers-bt-txt : #3d5eae;
+
+  --new-game-bt-bg : #7190d5;
+  --new-game-bt-txt : #ffffff;
+
+  --new-game-difficulty-bt-bg : #f3f7fb;
+  --new-game-difficulty-bt-txt : #333333;
+  --new-game-difficulty-bt-bg-hvr : #e4eaf1;
+}
+
+* {
+  font-family: Sans-serif;
+}
+
+body {
+  background-color: var(--body-bg);
+}
+
+.main-container {
+  display: flex;
+}
+
+.difficulty-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  #DifficultyP {
+    color: #A31D1D;
+    text-align: right;
+  }
+}
+
+.sudoku-container {
+  display: grid;
+  gap: 3px;
+  
+  .sudoku-block {
+    padding: 0;
+    outline: 3px solid var(--sudoku-ol);
+    display: grid;
+    gap: 1px;
+
+    .sudoku-box {
+      margin: 0;
+      padding: 0;
+      outline: 1px solid var(--sudoku-s-ol);
+      font-size: x-large;
+      color: var(--sudoku-txt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+.sudoku-box.error {
+  background-color: #ffcaca !important;
+  transition: background-color 0.3s ease;
+}
+
+.right-container {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.numbers-container {
+  margin-bottom: 50px;
+  display: grid;
+  gap: 10px;
+
+  .number-bt {
+    aspect-ratio: 1 / 1;
+    padding: 0px;
+    background-color: var(--numbers-bt-bg);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+      color: var(--numbers-bt-txt);
+    }
+  }
+  .number-bt.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }  
+}
+
+.new-game-button {
+  margin-bottom: 20px;
+  padding: 13px;
+  background-color: var(--new-game-bt-bg);
+  color: var(--new-game-bt-txt);
+  border: 2px solid var(--new-game-bt-bg);
+  border-radius: 5px;
+  font-size: x-large;
+}
+
+#Blur {
+  background-color: #000000ca;
+  display: none;
+  position: fixed;
+  left: 0;  top: 0;
+  width: 100%;  height: 100%;
+  z-index: 99;
+}
+
+.new-game-container {
+  padding: 30px;
+  background-color: var(--body-bg);
+  border-radius: 5px;
+  display: none;
+  flex-direction: column;
+  position: fixed;
+  left: 50%;  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+
+  p {
+    color: var(--difficulty-txt);
+    font-size: x-large;
+    font-weight: bold;
+    text-align: center;
+  }
+  button {
+    margin-top: 20px;
+    padding: 13px;
+    background-color: var(--new-game-difficulty-bt-bg);
+    color: var(--new-game-difficulty-bt-txt);
+    border: 2px solid var(--new-game-difficulty-bt-bg);
+    border-radius: 5px;
+    text-align: left;
+  }
+  button:hover {
+    background-color: var(--new-game-difficulty-bt-bg-hvr);
+  }
+}
+
+/* Styles for devices with a width of 768px or more (tablets, desktops) */
+@media (min-width: 768px) {
+  .main-container {
+    flex-direction: row;
+    gap: 50px;
+  }
+
+  .difficulty-container {
+    margin: 20px;
+  }
+  .sudoku-container {
+    margin: 20px;
+    margin-top: -20px;
+    width: max-content;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    
+    .sudoku-block {
+      width: max-content;
+      grid-template-rows: repeat(3, 4vw);
+      grid-template-columns: repeat(3, 4vw);
+  
+      .sudoku-box {
+        width: 4vw;  height: 4vw;
+      }
+    }
+  }
+
+  .numbers-container {
+    margin-bottom: 50px;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: repeat(3, auto);
+  
+    .number-bt {
+      border-radius: 5px;
+
+      p {
+        font-size: x-large;
+      }
+    }
+  }
+
+  .new-game-container {
+    width: 30vw;
+  }
+}
+
+/* Styles for devices with a width of less than 768px (mobiles) */
+@media (max-width: 767px) {
+  .main-container {
+    flex-direction: column;
+  }
+  .difficulty-container {
+    margin-top: 10px;
+  }
+  .sudoku-container {
+    background-color: transparent;
+    width: 100%;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    position: relative;
+
+    .sudoku-block {
+      background-color: transparent;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      grid-template-rows: repeat(3, 1fr);
+      grid-template-columns: repeat(3, 1fr);
+      .sudoku-box {
+        width: 100%;  height: 100%;
+      }
+    }
+  }
+
+  .numbers-container {
+    margin-top: 20px;
+    grid-template-columns: repeat(9, 1fr);    
+    overflow: scroll;
+  
+    .number-bt {
+      border-radius: 50%;
+      p {
+        font-size: large;
+      }
+    }
+  }
+
+  .new-game-container {
+    width: 80vw;
+  }
+}

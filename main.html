@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sudoku</title>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+
+        <main class="main-container" id="mainContainer">
+
+            <div class="left-container">
+
+                <div class="difficulty-container">
+                    <p id="MistakesP">Mistakes: 0/3</p>
+                    <p id="DifficultyP"></p>
+               </div>
+        
+               <div class="sudoku-container" id="SudokuContainer"></div>
+
+            </div>
+
+            <div class="right-container">
+
+                <button class="new-game-button" id="newGameButton">New Game</button>
+
+                <div class="numbers-container">
+                    <div class="number-bt"><p class="numberBTN1">1</p></div>
+                    <div class="number-bt"><p class="numberBTN2">2</p></div>
+                    <div class="number-bt"><p class="numberBTN3">3</p></div>
+                    <div class="number-bt"><p class="numberBTN4">4</p></div>
+                    <div class="number-bt"><p class="numberBTN5">5</p></div>
+                    <div class="number-bt"><p class="numberBTN6">6</p></div>
+                    <div class="number-bt"><p class="numberBTN7">7</p></div>
+                    <div class="number-bt"><p class="numberBTN8">8</p></div>
+                    <div class="number-bt"><p class="numberBTN9">9</p></div>                    
+                </div>
+    
+            </div>
+
+        </main>
+
+        <div id="Blur"></div>
+
+        <div class="new-game-container" id="newGameContainer">
+            <p class="new-game-container-title">Select Difficulty</p>
+
+            <button class="new-game-easy-button" id="newGameEasyButton">Easy</button>
+            <button class="new-game-medium-button" id="newGameMediumButton">Medium</button>
+            <button class="new-game-hard-button" id="newGameHardButton">Hard</button>
+            <button class="new-game-expert-button" id="newGameExpertButton">Expert</button>
+            <button class="new-game-extreme-button" id="newGameExtremeButton">Extreme</button>
+        </div>
+
+        <script src="main.js"></script>
+    </body>
+</html>
